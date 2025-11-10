@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل البيانات</title>
+</head>
+<body>
+
+    <center>
+        <h2>نموذج تسجيل البيانات</h2>
+
+        <form>
+
+            <table  cellpadding="8" cellspacing="0">
+                <tr>
+                    <td><label for="name">الاسم الكامل:</label></td>
+                    <td><input type="text" id="name" name="name" style="height:35px; width:250px;" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">البريد الإلكتروني:</label></td>
+                    <td><input type="email" id="email" name="email" style="height:35px; width:250px;" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="phone">رقم الهاتف:</label></td>
+                    <td><input type="tel" id="phone" name="phone" style="height:35px; width:250px;" placeholder="مثال: 777123456" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="age">العمر:</label></td>
+                    <td><input type="number" id="age" name="age" style="height:35px; width:250px;" min="1" max="100" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="qualification">المؤهل الجامعي:</label></td>
+                    <td>
+                        <select id="qualification" name="qualification" style="height:40px; width:260px;" required>
+                            <option value="">اختر المؤهل</option>
+                            <option value="دبلوم">دبلوم</option>
+                            <option value="بكالوريوس">بكالوريوس</option>
+                            <option value="ماجستير">ماجستير</option>
+                            <option value="دكتوراه">دكتوراه</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="gender">الجنس:</label></td>
+                    <td>
+                        <select id="gender" name="gender" style="height:40px; width:260px;" required>
+                            <option value="">اختر الجنس</option>
+                            <option value="ذكر">ذكر</option>
+                            <option value="أنثى">أنثى</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">كلمة المرور:</label></td>
+                    <td><input type="password" id="password" name="password" style="height:35px; width:250px;" required></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="تسجيل" style="height:40px; width:120px;">
+                        <input type="reset" value="مسح" style="height:40px; width:120px;">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </center>
+
+</body>
+</html>
