@@ -1,77 +1,188 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل البيانات</title>
+    <title>سوبر ماركت</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <center>
-        <h2>نموذج تسجيل البيانات</h2>
+<header>
+    <h1>🛒 سوبر ماركت</h1>
+    <a href="cart.html" class="cart-link">عرض السلة</a>
+</header>
 
-        <form>
+<!-- صندوق البحث والتصنيف -->
+<section class="filter-search">
+    <input type="text" id="searchInput" placeholder="ابحث عن المنتج..." onkeyup="filterProducts()">
+    <select id="categorySelect" onchange="filterProducts()">
+        <option value="all">كل المنتجات</option>
+        <option value="fruit">فواكه</option>
+        <option value="vegetable">خضار</option>
+        <option value="drink">مشروبات</option>
+        <option value="sweet">حلويات</option>
+        <option value="dairy">ألبان</option>
+        <option value="bread">خبز</option>
+        <option value="canned">معلبات</option>
+    </select>
+</section>
 
-            <table  cellpadding="8" cellspacing="0">
-                <tr>
-                    <td><label for="name">الاسم الكامل:</label></td>
-                    <td><input type="text" id="name" name="name" style="height:35px; width:250px;" required></td>
-                </tr>
+<section class="products">
 
-                <tr>
-                    <td><label for="email">البريد الإلكتروني:</label></td>
-                    <td><input type="email" id="email" name="email" style="height:35px; width:250px;" required></td>
-                </tr>
+    <!-- ======== الفواكه ======== -->
+    <div class="product" data-category="fruit">
+        <img src="apples.jpg" alt="">
+        <h3>تفاح</h3>
+        <p>3$ للكيلو</p>
+        <button onclick="addToCart('تفاح', 3)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="fruit">
+        <img src="banana.jpeg" alt="">
+        <h3>موز</h3>
+        <p>2$ للكيلو</p>
+        <button onclick="addToCart('موز', 2)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="fruit">
+        <img src="oring.jpg" alt="">
+        <h3>برتقال</h3>
+        <p>4$ للكيلو</p>
+        <button onclick="addToCart('برتقال', 4)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="fruit">
+        <img src="grapes.jpeg" alt="">
+        <h3>عنب</h3>
+        <p>6$ للكيلو</p>
+        <button onclick="addToCart('عنب', 6)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="fruit">
+        <img src="strawberry.jpg" alt="">
+        <h3>فراولة</h3>
+        <p>5$ للكيلو</p>
+        <button onclick="addToCart('فراولة', 5)">إضافة للسلة</button>
+    </div>
 
-                <tr>
-                    <td><label for="phone">رقم الهاتف:</label></td>
-                    <td><input type="tel" id="phone" name="phone" style="height:35px; width:250px;" placeholder="مثال: 777123456" required></td>
-                </tr>
+    <!-- ======== الخضار ======== -->
+    <div class="product" data-category="vegetable">
+        <img src="images (2).jpeg" alt="">
+        <h3>طماطم</h3>
+        <p>1.5$ للكيلو</p>
+        <button onclick="addToCart('طماطم', 1.5)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="vegetable">
+        <img src="image_0.jpeg" alt="">
+        <h3>بطاطس</h3>
+        <p>1$ للكيلو</p>
+        <button onclick="addToCart('بطاطس', 1)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="vegetable">
+        <img src="option.jpeg" alt="">
+        <h3>خيار</h3>
+        <p>1.2$ للكيلو</p>
+        <button onclick="addToCart('خيار', 1.2)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="vegetable">
+        <img src="carrot.jpg" alt="">
+        <h3>جزر</h3>
+        <p>1$ للكيلو</p>
+        <button onclick="addToCart('جزر', 1)">إضافة للسلة</button>
+    </div>
 
-                <tr>
-                    <td><label for="age">العمر:</label></td>
-                    <td><input type="number" id="age" name="age" style="height:35px; width:250px;" min="1" max="100" required></td>
-                </tr>
+    <!-- ======== المشروبات ======== -->
+    <div class="product" data-category="drink">
+        <img src="pip.png" alt="">
+        <h3>بيبسي</h3>
+        <p>1$</p>
+        <button onclick="addToCart('بيبسي', 1)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="drink">
+        <img src="water.png" alt="">
+        <h3>مياه</h3>
+        <p>0.5$</p>
+        <button onclick="addToCart('مياه', 0.5)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="drink">
+        <img src="orange juice.jpeg" alt="">
+        <h3>عصير برتقال</h3>
+        <p>2$</p>
+        <button onclick="addToCart('عصير برتقال', 2)">إضافة للسلة</button>
+    </div>
 
-                <tr>
-                    <td><label for="qualification">المؤهل الجامعي:</label></td>
-                    <td>
-                        <select id="qualification" name="qualification" style="height:40px; width:260px;" required>
-                            <option value="">اختر المؤهل</option>
-                            <option value="دبلوم">دبلوم</option>
-                            <option value="بكالوريوس">بكالوريوس</option>
-                            <option value="ماجستير">ماجستير</option>
-                            <option value="دكتوراه">دكتوراه</option>
-                        </select>
-                    </td>
-                </tr>
+    <!-- ======== الحلويات ======== -->
+    <div class="product" data-category="sweet">
+        <img src="ppppp.jpeg" alt="">
+        <h3>شوكولاتة</h3>
+        <p>1.5$</p>
+        <button onclick="addToCart('شوكولاتة', 1.5)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="sweet">
+        <img src="bascoeet.jpg" alt="">
+        <h3>بسكويت</h3>
+        <p>1$</p>
+        <button onclick="addToCart('بسكويت', 1)">إضافة للسلة</button>
+    </div>
 
-                <tr>
-                    <td><label for="gender">الجنس:</label></td>
-                    <td>
-                        <select id="gender" name="gender" style="height:40px; width:260px;" required>
-                            <option value="">اختر الجنس</option>
-                            <option value="ذكر">ذكر</option>
-                            <option value="أنثى">أنثى</option>
-                        </select>
-                    </td>
-                </tr>
+    <!-- ======== الألبان ======== -->
+    <div class="product" data-category="dairy">
+        <img src="milke.jpg" alt="">
+        <h3>حليب</h3>
+        <p>1.2$</p>
+        <button onclick="addToCart('حليب', 1.2)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="dairy">
+        <img src="images (6).jpeg" alt="">
+        <h3>جبن</h3>
+        <p>3$</p>
+        <button onclick="addToCart('جبن', 3)">إضافة للسلة</button>
+    </div>
 
-                <tr>
-                    <td><label for="password">كلمة المرور:</label></td>
-                    <td><input type="password" id="password" name="password" style="height:35px; width:250px;" required></td>
-                </tr>
+    <!-- ======== الخبز ======== -->
+    <div class="product" data-category="bread">
+        <img src="boord.png" alt="">
+        <h3>خبز</h3>
+        <p>0.5$</p>
+        <button onclick="addToCart('خبز', 0.5)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="bread">
+        <img src="images (9).jpeg" alt="">
+        <h3>كرواسان</h3>
+        <p>1$</p>
+        <button onclick="addToCart('كرواسان', 1)">إضافة للسلة</button>
+    </div>
 
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" value="تسجيل" style="height:40px; width:120px;">
-                        <input type="reset" value="مسح" style="height:40px; width:120px;">
-                    </td>
-                </tr>
-            </table>
+    <!-- ======== المعلبات ======== -->
+    <div class="product" data-category="canned">
+        <img src="images (8).jpeg" alt="">
+        <h3>ذرة معلبة</h3>
+        <p>1.5$</p>
+        <button onclick="addToCart('ذرة معلبة', 1.5)">إضافة للسلة</button>
+    </div>
+    <div class="product" data-category="canned">
+        <img src="images (7).jpeg" alt="">
+        <h3>فاصوليا معلبة</h3>
+        <p>1.2$</p>
+        <button onclick="addToCart('فاصوليا معلبة', 1.2)">إضافة للسلة</button>
+    </div>
 
-        </form>
-    </center>
+</section>
 
+<script src="main.js"></script>
+<script>
+function filterProducts() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let category = document.getElementById('categorySelect').value;
+    let products = document.querySelectorAll('.product');
+
+    products.forEach(p => {
+        let name = p.querySelector('h3').textContent.toLowerCase();
+        let cat = p.getAttribute('data-category');
+        if ((name.includes(input) || input === '') && (category === 'all' || category === cat)) {
+            p.style.display = 'block';
+        } else {
+            p.style.display = 'none';
+        }
+    });
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة المشتريات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🛍️ سلة المشتريات</h1>
+    <a href="index.html" class="cart-link">رجوع للمنتجات</a>
+</header>
+
+<section class="cart-area">
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>المنتج</th>
+                <th>السعر</th>
+                <th>الكمية</th>
+                <th>المجموع</th>
+                <th>إدارة</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2 id="totalPrice">الإجمالي: 0$</h2>
+
+    <div style="text-align:center; margin-top:20px;">
+        <button id="payBtn" class="product-button">💳 الدفع</button>
+    </div>
+</section>
+
+<!-- بطاقة الدفع -->
+<div id="payBox" class="pay-box">
+    <div class="pay-card">
+        <h2>💳 الدفع</h2>
+
+        <label>الاسم على البطاقة</label>
+        <input type="text" id="cardName" placeholder="اكتب اسمك">
+
+        <label>رقم البطاقة</label>
+        <input type="text" id="cardNumber" maxlength="16" placeholder="1234 5678 9012 3456">
+
+        <div class="row">
+            <div class="col">
+                <label>تاريخ الانتهاء</label>
+                <input type="text" id="cardDate" placeholder="MM/YY">
+            </div>
+            <div class="col">
+                <label>CVV</label>
+                <input type="password" id="cardCVV" maxlength="3" placeholder="123">
+            </div>
+        </div>
+
+        <button class="pay-confirm" onclick="confirmPay()">إتمام الدفع</button>
+        <button class="close" onclick="closePay()">إغلاق</button>
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+// فتح بطاقة الدفع
+document.getElementById("payBtn").addEventListener("click", function() {
+    if(cart.length === 0){
+        alert("السلة فارغة!");
+        return;
+    }
+    document.getElementById("payBox").style.display = "flex";
+});
+
+// إغلاق البطاقة
+function closePay() {
+    document.getElementById("payBox").style.display = "none";
+}
+
+// تأكيد الدفع
+function confirmPay() {
+    if(!document.getElementById("cardName").value ||
+       !document.getElementById("cardNumber").value ||
+       !document.getElementById("cardDate").value ||
+       !document.getElementById("cardCVV").value){
+        alert("يرجى ملء جميع الحقول!");
+        return;
+    }
+    alert("تم الدفع بنجاح! شكرًا لك ❤️");
+    cart = [];
+    sessionStorage.removeItem("cart");
+    closePay();
+    displayCart();
+}
+</script>
+</body>
+</html>
